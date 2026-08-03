@@ -289,7 +289,7 @@ body {
   column-gap: 8px; row-gap: 4px;
   margin-bottom: 10px;
 }
-.month { grid-column: 2; grid-row: 1; font-size: .95rem; font-weight: 800; color: var(--pink); letter-spacing: 1px; }
+.month { grid-column: 2; grid-row: 1; font-size: .95rem; font-weight: 800; color: var(--pink); letter-spacing: 1px; white-space: nowrap; }
 .day-of-week {
   grid-column: 1; grid-row: 2; justify-self: center;
   font-size: .68rem; font-weight: 800; color: var(--pink);
@@ -464,7 +464,6 @@ body {
   .phone-pill, .secret-pill-btn { font-size: .68rem; padding: 5px 8px; }
   .phone-pill svg      { width: 12px; height: 12px; }
   .bottom-btns-row     { gap: 4px; }
-}
 }
 
 /* capture mode */
