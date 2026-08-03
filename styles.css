@@ -33,6 +33,21 @@ body {
   pointer-events: none; z-index: 1;
 }
 
+/* Floating Buttons */
+.music-toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 999;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(200, 23, 78, 0.9); border: 1.5px solid var(--pink-light);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(200, 23, 78, 0.3);
+  transition: transform .3s, box-shadow .3s;
+}
+.music-toggle:hover { transform: scale(1.12); box-shadow: 0 6px 20px rgba(200, 23, 78, 0.5); }
+.music-toggle.playing svg { animation: spin 4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.music-toggle svg { width: 20px; height: 20px; fill: currentColor; }
+
 /* Admin button */
 .link-gen-toggle {
   position: fixed; top: 16px; left: 16px; z-index: 999;

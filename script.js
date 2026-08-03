@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initSecretModal();
   initAutoRemoveBackground();
+  initAudio();
 });
 
 /* --------------------------------------------------------------------------
@@ -88,8 +89,9 @@ function initEnvelope() {
   function openEnvelope() {
     if (!screen || screen.classList.contains('opened')) return;
 
-    // 1. Fire cherry blossom petal rain
+    // 1. Fire cherry blossom petal rain & play celebration sound
     startPetalRain();
+    playCelebrationAudio();
 
     // 2. Animate flap open
     if (flap) flap.classList.add('open');
@@ -427,3 +429,61 @@ window.downloadCardImage = function () {
     document.head.appendChild(s);
   }
 };
+
+/* --------------------------------------------------------------------------
+   9. AUDIO SYSTEM (Synthesized Graduation Celebration Chime + Music Toggle)
+   -------------------------------------------------------------------------- */
+let audioCtx;
+let isAudioPlaying = false;
+
+function initAudio() {
+  const musicToggle = document.getElementById('music-toggle');
+
+  if (musicToggle) {
+    musicToggle.addEventListener('click', () => {
+      if (!isAudioPlaying) {
+        playCelebrationAudio();
+        musicToggle.classList.add('playing');
+        isAudioPlaying = true;
+      } else {
+        if (audioCtx) audioCtx.suspend();
+        musicToggle.classList.remove('playing');
+        isAudioPlaying = false;
+      }
+    });
+  }
+}
+
+function playCelebrationAudio() {
+  const musicToggle = document.getElementById('music-toggle');
+  if (musicToggle) musicToggle.classList.add('playing');
+  isAudioPlaying = true;
+
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    audioCtx = new AudioContext();
+
+    // Play a euphoric graduation Arpeggio Chord (C Major / G Major Celebration)
+    const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51]; // C5, E5, G5, C6, E6
+    notes.forEach((freq, idx) => {
+      setTimeout(() => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.8);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.8);
+      }, idx * 180);
+    });
+  } catch (e) {
+    console.log('Audio Context Autoplay restricted:', e);
+  }
+}
