@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Thiệp Mời Lễ Tốt Nghiệp | Kim Hạnh</title>
+  <meta name="description" content="Trân trọng kính mời bạn đến tham dự Lễ Tốt Nghiệp của Kim Hạnh - Trường Đại Học Văn Lang.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🎓 Thiệp Mời Tốt Nghiệp - Kim Hạnh 💕">
+  <meta property="og:description" content="09:00 - 10:00 | Ngày 06/08/2026 tại Trường ĐH Văn Lang, Q. Bình Thạnh">
+  <meta property="og:image" content="anhtotnghiep.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <canvas id="sparkle-canvas"></canvas>
+
+  <!-- Admin / Link gen toggle button -->
+  <button class="link-gen-toggle" id="link-gen-toggle" title="Tạo link gửi riêng từng khách">
+    <span>📋 Danh Sách Thiệp Riêng</span>
+  </button>
+
+  <!-- ================================================================
+       ENVELOPE OPENING SCREEN (full-screen, fixed)
+       ================================================================ -->
+  <div class="envelope-screen" id="envelope-screen">
+
+    <!-- Logo ornament at top -->
+    <div class="env-ornament-top">
+      <img src="logovlu.png" alt="Trường Đại Học Văn Lang" class="env-logo-img">
+      <div class="env-school-name">TRƯỜNG ĐẠI HỌC VĂN LANG</div>
+    </div>
+
+    <!-- The envelope itself -->
+    <div class="envelope-wrapper" id="envelope-wrapper">
+      <div class="envelope-body" id="envelope-body">
+
+        <!-- Envelope back -->
+        <div class="env-back"></div>
+
+        <!-- Top flap -->
+        <div class="env-flap" id="env-flap">
+          <div class="env-flap-inner">
+            <span class="env-flap-text">VAN LANG UNIVERSITY · 2026</span>
+          </div>
+        </div>
+
+        <!-- Wax Seal -->
+        <div class="wax-seal" id="wax-seal">
+          <div class="wax-seal-inner">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+        </div>
+
+        <!-- Body text -->
+        <div class="env-body-content">
+          <div class="env-to-text">Trân trọng kính gửi</div>
+          <div class="env-guest-name" id="guest-tag-name">Quý Khách Mời</div>
+        </div>
+
+        <!-- Side & bottom triangles -->
+        <div class="env-side env-side-left"></div>
+        <div class="env-side env-side-right"></div>
+        <div class="env-bottom-fold"></div>
+
+      </div>
+    </div>
+
+    <!-- Open hint -->
+    <div class="open-hint">
+      <span class="hint-dot"></span>
+      Nhấn vào phong bì hoặc con dấu để mở thiệp
+      <span class="hint-dot"></span>
+    </div>
+
+  </div><!-- end envelope-screen -->
+
+  <!-- ================================================================
+       MAIN INVITATION CONTENT
+       ================================================================ -->
+  <div class="main-container" id="main-content">
+
+    <!-- Poster Card -->
+    <div class="poster-card" id="capture-card">
+
+      <!-- Top Left: Red Shield Logo (logovlu.png) -->
+      <div class="poster-header">
+        <img src="logovlu.png" alt="VLU Logo" class="poster-logo-img">
+        <div class="poster-school-name">
+          <strong>TRƯỜNG ĐẠI HỌC VĂN LANG</strong>
+          <span>VAN LANG UNIVERSITY</span>
+        </div>
+      </div>
+
+      <!-- Top Right: Ribbon bookmark -->
+      <div class="poster-ribbon">
+        <div class="ribbon-icon">
+          <!-- Graduation cap icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2.12-1.15V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+        </div>
+        <div class="ribbon-cols">
+          <div class="ribbon-col-left"><span>PSYCHOLOGY</span></div>
+          <div class="ribbon-col-divider"></div>
+          <div class="ribbon-col-right"><span>TRẦN KIM HẠNH</span></div>
+        </div>
+        <div class="ribbon-knot">
+          <!-- Decorative star/knot icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#fff"/></svg>
+        </div>
+        <div class="ribbon-batch">K28</div>
+      </div>
+
+      <!-- Center invitation text -->
+      <div class="poster-center">
+        <div class="text-than-moi">Thân mời</div>
+        <div class="guest-name-cursive" id="guest-fullname">Khách Mời</div>
+        <div class="dotted-line"></div>
+        <div class="text-den-tham-du">đến tham dự</div>
+        <div class="kim-hanh-cursive">Kim Hạnh's</div>
+        <div class="text-graduation">GRADUATION</div>
+      </div>
+
+      <!-- Bottom: date/location left, photo right -->
+      <div class="poster-bottom">
+        <div class="bottom-info">
+          <div class="date-block">
+            <div class="month">THÁNG 8</div>
+            <div class="day-of-week">THỨ NĂM</div>
+            <div class="date-number">06</div>
+            <div class="time">9:00 - 10:00</div>
+            <div class="year">2026</div>
+          </div>
+
+          <div class="location-block">
+            <div class="loc-title">
+              <svg class="loc-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              TRƯỜNG ĐẠI HỌC VĂN LANG<br>CƠ SỞ CHÍNH
+            </div>
+            <div class="loc-address">69/68 Đặng Thùy Trâm, Phường 13,<br>Quận Bình Thạnh.</div>
+          </div>
+
+          <div class="bottom-btns-row">
+            <button class="secret-pill-btn" id="secret-btn" title="Xem thư cảm ơn &amp; Tiện ích">
+              💌 Lời Cảm Ơn
+            </button>
+          </div>
+        </div>
+      </div><!-- end poster-bottom -->
+
+      <!-- Full-width phone bar -->
+      <div class="phone-bar">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span>0961349831</span>
+      </div><!-- end poster-bottom -->
+
+      <!-- Photo — spans from below GRADUATION to bottom right -->
+      <div class="bottom-photo">
+        <img src="anhtotnghiep.jpg" alt="Kim Hạnh" class="graduate-img" id="graduate-img">
+      </div>
+    </div><!-- end poster-card -->
+
+  </div><!-- end main-content -->
+
+  <!-- MODAL BÍ MẬT: Lời Cảm Ơn & Tiện Ích -->
+  <div class="modal-overlay" id="secret-modal">
+    <div class="modal-card secret-modal-card">
+      <button class="modal-close" id="secret-modal-close">&times;</button>
+      
+      <div class="secret-modal-header">
+        <span class="secret-modal-badge">💌 BỨC THƯ TỪ KIM HẠNH</span>
+      </div>
+
+      <div class="quote-box">
+        <p>✨ Tháng năm rực rỡ, ngày lành đã điểm. Chuyến hành trình 4 năm Đại học của Kim Hạnh cuối cùng cũng trọn vẹn cập bến. 🎓</p>
+        <p>Nhìn lại chặng đường trưởng thành vừa qua, Kim Hạnh muốn gửi lời tri ân sâu sắc nhất đến tất cả những người thương đã luôn đồng hành, che chở và ủng hộ. Sự hiện diện của các anh/chị/em và những người bạn quý mến trong ngày vui này là niềm hạnh phúc và vinh hạnh vô bờ bến đối với Kim Hạnh. 🩷</p>
+        <p>Nếu lỡ hẹn vì lịch trình bận rộn, mọi người đừng lo nha, tụi mình sẽ sớm bù đắp bằng một chầu trà sữa, cà phê tâm tình nè! ☕️</p>
+        <p><strong>Góc nhỏ xíu:</strong> Kim Hạnh cực kỳ mê những dòng chữ nắn nót, nên rất mong sẽ nhận được những lá thư tay xinh xắn từ mọi người để lưu giữ kỉ niệm đó nha.</p>
+        <p class="quote-signature">Thương yêu cả nhà mình thật nhiều! 🍊❤️</p>
+      </div>
+
+      <div class="action-buttons">
+        <a href="https://maps.app.goo.gl/wS78nU8yqE6x3Z8Y9" target="_blank" class="btn primary-btn">📍 Chỉ Đường Maps</a>
+        <button class="btn secondary-btn" onclick="downloadCardImage()">📸 Tải Ảnh Thiệp</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Guest Link Generator -->
+  <div class="modal-overlay" id="link-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 class="modal-title">📋 Danh Sách Thiệp Riêng</h2>
+      <p class="modal-desc">Bấm <strong>"Sao chép Link"</strong> để lấy link thiệp có tên riêng từng người gửi qua Zalo / Facebook!</p>
+      <div class="guest-list-items" id="guest-list-items"></div>
+      <div class="custom-link-box">
+        <input type="text" id="custom-guest-name" placeholder="Nhập tên khách mời mới...">
+        <button class="copy-btn" id="custom-copy-btn">Tạo &amp; Chép Link</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
